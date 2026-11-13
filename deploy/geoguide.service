@@ -1,0 +1,17 @@
+[Unit]
+Description=GeoGuide High-Frequency Location Tracking Rust Backend
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/GeoGuide
+ExecStart=/home/ubuntu/GeoGuide/target/release/geoguide
+Restart=always
+RestartSec=5
+EnvironmentFile=/home/ubuntu/GeoGuide/.env
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
